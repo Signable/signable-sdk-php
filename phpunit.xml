@@ -1,0 +1,7 @@
+<phpunit bootstrap="tests/bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="Signable PHP Test Suite">
+            <directory suffix="Tests.php">tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

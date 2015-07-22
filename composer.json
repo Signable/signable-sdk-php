@@ -1,0 +1,26 @@
+{
+  "name": "signable/signable-php",
+  "description": "Signable PHP Library",
+  "keywords": [
+    "signable",
+    "api"
+  ],
+  "homepage": "http://www.signable.co.uk/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Signable and contributors"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0"
+  },
+  "autoload": {
+    "psr-4": {"Signable\\": "lib/"}
+  }
+}

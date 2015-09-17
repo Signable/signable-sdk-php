@@ -10,11 +10,12 @@ Installation
 
 Add the Signable PHP SDK to your composer.json file. If you are not using Composer, you should be. It's an excellent way to manage dependencies in your PHP application.
 
-{  
-  "require": {
-    "signable/signable-php": "*"
-  }
-}
+	{  
+  		"require": {
+    		"signable/signable-php": "*"
+  		}
+	}
+
 Then at the top of your PHP script require the autoloader:
 
 	require 'vendor/autoload.php';
@@ -28,7 +29,7 @@ If you are not using Composer, simply download and install the latest packaged r
 
 Then require the library from package:
 
-require("path/to/signable-sdk-php/init.php");
+	require("path/to/signable-sdk-php/init.php");
 
 Initialisation
 -------------

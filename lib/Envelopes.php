@@ -20,7 +20,7 @@ class Envelopes {
 	 *
 	 * @return mixed                     API response
 	 */
-	public static function createNewWithTemplate( $envelopeTitle, $envelopeDocuments, $envelopeParties, $userID = -1, $passwordProtect = false, $redirectURL = '' ) {
+	public static function createNewWithTemplate( $envelopeTitle, $envelopeDocuments, $envelopeParties, $userID = -1, $passwordProtect = false, $redirectURL = '', $autoRemind = 0, $autoExpire = 0 ) {
 
 		$data = array(
 			'envelope_title'     => $envelopeTitle,
@@ -33,6 +33,12 @@ class Envelopes {
 		}
 		if ( false !== $passwordProtect ) {
 			$data['envelope_password_protect'] = $passwordProtect;
+		}
+		if ( 0 !== $autoExpire) {
+			$data['envelope_auto_expire_hours'] = $autoExpire;
+		}
+		if ( 0 !== $autoRemind) {
+			$data['envelope_auto_remind_hours'] = $autoRemind;
 		}
 		if ( '' !== $redirectURL ) {
 			$data['envelope_redirect_url'] = $redirectURL;
@@ -55,7 +61,7 @@ class Envelopes {
 	 *
 	 * @return mixed                     API response
 	 */
-	public static function createNewWithoutTemplate( $envelopeTitle, $envelopeDocuments, $envelopeParties, $userID = -1, $passwordProtect = false, $redirectURL = '' ) {
+	public static function createNewWithoutTemplate( $envelopeTitle, $envelopeDocuments, $envelopeParties, $userID = -1, $passwordProtect = false, $redirectURL = '', $autoRemind = 0, $autoExpire = 0 ) {
 
 		$data = array(
 			'envelope_title'     => $envelopeTitle,
@@ -68,6 +74,12 @@ class Envelopes {
 		}
 		if ( false !== $passwordProtect ) {
 			$data['envelope_password_protect'] = $passwordProtect;
+		}
+		if ( 0 !== $autoExpire) {
+			$data['envelope_auto_expire_hours'] = $autoExpire;
+		}
+		if ( 0 !== $autoRemind) {
+			$data['envelope_auto_remind_hours'] = $autoRemind;
 		}
 		if ( '' !== $redirectURL ) {
 			$data['envelope_redirect_url'] = $redirectURL;

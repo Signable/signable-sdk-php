@@ -153,4 +153,16 @@ class Envelopes {
 
 		return ApiClient::call( 'envelopes/' . $envelopeFingerprint . '/expire', 'put', array(), new curlWrapper() );
 	}
+
+	/**
+	 * Delete an envelope on Signable
+	 *
+	 * @param  string $envelopeFingerprint required - the fingerprint of the envelope to delete
+	 *
+	 * @return mixed          API response
+	 */
+	public static function delete( $envelopeFingerprint ) {
+
+		return ApiClient::call( 'envelopes/' . $envelopeFingerprint, 'delete', array(), new curlWrapper() );
+	}
 }

@@ -13,15 +13,20 @@ class Users {
 	 *
 	 * @param  string $userName  required - the name of the new user
 	 * @param  string $userEmail required - the email of the new user
+	 * @param  int $teamID optional - a valid team_id
 	 *
 	 * @return mixed             API response
 	 */
-	public static function createNew( $userName, $userEmail ) {
+	public static function createNew( $userName, $userEmail, $teamID = 0 ) {
 
 		$data = array(
 			'user_name'  => $userName,
-			'user_email' => $userEmail,
+			'user_email' => $userEmail
 		);
+
+		if($teamID > 0) {
+			$data['team_id'] = $teamID;
+		}
 
 		return ApiClient::call( 'users', 'post', $data, new curlWrapper() );
 	}
@@ -67,7 +72,7 @@ class Users {
 	 *
 	 * @return mixed             API response
 	 */
-	public static function update( $userID, $userName = '', $userEmail = '' ) {
+	public static function update( $userID, $userName = '', $userEmail = '', $teamID = 0 ) {
 
 		$data = array();
 
@@ -77,6 +82,10 @@ class Users {
 
 		if ( '' != $userEmail ) {
 			$data['user_email'] = $userEmail;
+		}
+
+		if ($teamID > 0) {
+			$data['team_id'] = $teamID;
 		}
 
 		return ApiClient::call( 'users/' . $userID, 'put', $data, new curlWrapper() );

@@ -20,7 +20,7 @@ class Envelopes {
 	 *
 	 * @return mixed                     API response
 	 */
-	public static function createNewWithTemplate( $envelopeTitle, $envelopeDocuments, $envelopeParties, $userID = -1, $passwordProtect = false, $redirectURL = '', $autoRemind = 0, $autoExpire = 0 ) {
+	public static function createNewWithTemplate( $envelopeTitle, $envelopeDocuments, $envelopeParties, $userID = -1, $passwordProtect = false, $redirectURL = '', $autoRemind = 0, $autoExpire = 0, $meta = '' ) {
 
 		$data = array(
 			'envelope_title'     => $envelopeTitle,
@@ -42,6 +42,9 @@ class Envelopes {
 		}
 		if ( '' !== $redirectURL ) {
 			$data['envelope_redirect_url'] = $redirectURL;
+		}
+		if ( '' !== $meta ) {
+			$data['envelope_meta'] = $meta;
 		}
 
 		return ApiClient::call( 'envelopes', 'post', $data, new curlWrapper() );
@@ -61,7 +64,7 @@ class Envelopes {
 	 *
 	 * @return mixed                     API response
 	 */
-	public static function createNewWithoutTemplate( $envelopeTitle, $envelopeDocuments, $envelopeParties, $userID = -1, $passwordProtect = false, $redirectURL = '', $autoRemind = 0, $autoExpire = 0 ) {
+	public static function createNewWithoutTemplate( $envelopeTitle, $envelopeDocuments, $envelopeParties, $userID = -1, $passwordProtect = false, $redirectURL = '', $autoRemind = 0, $autoExpire = 0, $meta = '' ) {
 
 		$data = array(
 			'envelope_title'     => $envelopeTitle,
@@ -83,6 +86,9 @@ class Envelopes {
 		}
 		if ( '' !== $redirectURL ) {
 			$data['envelope_redirect_url'] = $redirectURL;
+		}
+		if ( '' !== $meta ) {
+			$data['envelope_meta'] = $meta;
 		}
 
 		return ApiClient::call( 'envelopes', 'post', $data, new curlWrapper() );
